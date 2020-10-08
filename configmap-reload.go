@@ -85,8 +85,8 @@ func main() {
 		os.Exit(1)
 	}
 
-	if len(webhook) < 1 {
-		log.Println("Missing webhook-url")
+	if len(webhook) < 1 && len(signalHook) < 1 {
+		log.Println("Missing webhook-url or signalHook")
 		log.Println()
 		flag.Usage()
 		os.Exit(1)
@@ -312,7 +312,7 @@ type signalHookFlag []*signalHookParam
 
 func (v *signalHookFlag) Set(value string) error {
 	strings := strings.SplitN(value, ":", 2)
-	if len(strings) == 2 {
+	if len(strings) != 2 {
 		return fmt.Errorf("invalid signalHook: %v, format: signalNumber:processName,eg: 1:nginx ", value)
 	}
 	signalNumber, err := strconv.Atoi(strings[0])
