@@ -1,4 +1,4 @@
-FROM golang:1.14.3-alpine3.11 as builder
+FROM hub.home.daozzg.com/golang:1.14.3-alpine3.11 as builder
 ENV GO111MODULE on
 ENV GOPROXY https://goproxy.io
 ENV CGO_ENABLED 0
@@ -12,7 +12,7 @@ RUN go mod download
 COPY . .
 RUN go build -o /bin/app *.go
 
-FROM busybox
+FROM hub.home.daozzg.com/busybox
 
 USER 65534
 
