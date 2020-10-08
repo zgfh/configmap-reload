@@ -19,4 +19,4 @@ USER 65534
 ARG BINARY=configmap-reload
 COPY --from=builder /bin/app  /bin/configmap-reload
 
-ENTRYPOINT ["/configmap-reload"]
+ENTRYPOINT ["/bin/configmap-reload"]
