@@ -14,9 +14,6 @@ RUN go build -o /bin/app *.go
 
 FROM hub.home.daozzg.com/busybox
 
-USER 65534
-
-ARG BINARY=configmap-reload
 COPY --from=builder /bin/app  /bin/configmap-reload
 
 ENTRYPOINT ["/bin/configmap-reload"]
