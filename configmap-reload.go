@@ -75,7 +75,7 @@ func init() {
 func main() {
 	flag.Var(&volumeDirs, "volume-dir", "the config map volume directory to watch for updates; may be used multiple times")
 	flag.Var(&webhook, "webhook-url", "the url to send a request to when the specified config map volume directory has been updated")
-	flag.Var(&webhook, "signalHook", "the signal params to send a signal to target process when the specified config map volume directory has been updated, format:signalNumber:processName, eg: send nginx process with SIGHUP: 1:nginx ")
+	flag.Var(&signalHook, "signalHook", "the signal params to send a signal to target process when the specified config map volume directory has been updated, format:signalNumber:processName, eg: send nginx process with SIGHUP: 1:nginx ")
 	flag.Parse()
 
 	if len(volumeDirs) < 1 {
