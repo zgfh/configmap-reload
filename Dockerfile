@@ -1,4 +1,4 @@
-ARG BASEIMAGE=busybox
+ARG BASEIMAGE=m.daocloud.io/docker.io/library/busybox
 FROM $BASEIMAGE
 
 USER 65534
